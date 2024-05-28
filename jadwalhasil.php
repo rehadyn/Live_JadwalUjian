@@ -55,9 +55,6 @@
                 </table>
             </div>
         </div>
-        <footer>
-            <p class="text-center mt-5">create with <span style="color: red;">❤</span> by <a href="https://www.rehad.id/">Reza Hadiwijaya Dynasti</a></p>
-        </footer>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
