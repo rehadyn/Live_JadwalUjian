@@ -98,8 +98,11 @@ $sql_unscheduled = "SELECT
                         tb_skripsi.id_mahasiswa = tb_data_mahasiswa.id
                     WHERE 
                         tb_skripsi.judul_hasil IS NOT NULL AND 
+                        tb_skripsi.judul_hasil <> '' AND 
                         tb_skripsi.dosen_pa1 IS NOT NULL AND 
                         tb_skripsi.dosen_pa2 IS NOT NULL AND 
+                        tb_skripsi.dosen_penguji2 IS NOT NULL AND 
+                        tb_skripsi.dosen_penguji2 <> '' AND 
                         tb_skripsi.tanggal_hasil IS NULL";
 
 $result_unscheduled = $conn->query($sql_unscheduled);
