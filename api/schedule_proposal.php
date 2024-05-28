@@ -45,6 +45,9 @@ function formatIndonesianDate($dateStr)
     return $formattedDate;
 }
 
+// Get current date
+$currentDate = date('Y-m-d');
+
 // Get scheduled proposals
 $sql = "SELECT 
             tb_data_mahasiswa.nama, 
@@ -68,8 +71,10 @@ $scheduled = array();
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $row['tanggal'] = formatIndonesianDate($row['tanggal']);
-        $scheduled[] = $row;
+        if ($row['tanggal'] >= $currentDate) {
+            $row['tanggal'] = formatIndonesianDate($row['tanggal']);
+            $scheduled[] = $row;
+        }
     }
 }
 

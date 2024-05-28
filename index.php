@@ -7,13 +7,30 @@
     <title>Jadwal Ujian</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
+    <style>
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            /* jarak antar tombol */
+        }
+
+        .btn-secondary:hover {
+            background-color: #007bff;
+            /* Warna tombol primary saat di-hover */
+            border-color: #007bff;
+            /* Warna border tombol primary saat di-hover */
+            color: #fff;
+            /* Warna teks putih */
+        }
+    </style>
 </head>
 
 <body>
     <div class="container mt-5 text-center">
-        <h1 class="mb-4">Selamat Datang</h1>
+        <h1 class="mb-4">Jadwal Ujian</h1>
         <div class="btn-group" role="group">
-            <a href="jadwalproposal.php" class="btn btn-primary">Jadwal Ujian Proposal</a>
+            <a href="jadwalproposal.php" class="btn btn-secondary">Jadwal Ujian Proposal</a>
             <a href="jadwalhasil.php" class="btn btn-secondary">Jadwal Ujian Hasil</a>
         </div>
     </div>

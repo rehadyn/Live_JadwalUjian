@@ -6,28 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jadwal Ujian Hasil</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-        }
-
-        .wrapper {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .content {
-            flex: 1;
-        }
-
-        footer {
-            background: #f8f9fa;
-            padding: 20px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
@@ -43,10 +22,10 @@
                             <th>Nama</th>
                             <th>Judul Hasil</th>
                             <th>Tanggal</th>
-                            <th>Dosen Ketua</th>
-                            <th>Dosen Sekretaris</th>
-                            <th>Dosen PA1</th>
-                            <th>Dosen PA2</th>
+                            <th>Ketua Ujian</th>
+                            <th>Sekretaris Ujian</th>
+                            <th>Pembimbing Akademik 1</th>
+                            <th>Pembimbing Akademik 2</th>
                             <th>Dosen Penguji 1</th>
                             <th>Dosen Penguji 2</th>
                         </tr>
@@ -62,10 +41,10 @@
                         <tr>
                             <th>Nama</th>
                             <th>Judul Hasil</th>
-                            <th>Dosen Ketua</th>
-                            <th>Dosen Sekretaris</th>
-                            <th>Dosen PA1</th>
-                            <th>Dosen PA2</th>
+                            <th>Ketua Ujian</th>
+                            <th>Sekretaris Ujian</th>
+                            <th>Pembimbing Akademik 1</th>
+                            <th>Pembimbing Akademik 2</th>
                             <th>Dosen Penguji 1</th>
                             <th>Dosen Penguji 2</th>
                         </tr>

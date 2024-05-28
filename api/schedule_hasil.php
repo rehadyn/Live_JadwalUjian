@@ -45,6 +45,9 @@ function formatIndonesianDate($dateStr)
     return $formattedDate;
 }
 
+// Get current date
+$currentDate = date('Y-m-d');
+
 // Get scheduled results
 $sql = "SELECT 
             tb_data_mahasiswa.nama, 
@@ -70,8 +73,10 @@ $scheduled = array();
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $row['tanggal'] = formatIndonesianDate($row['tanggal']);
-        $scheduled[] = $row;
+        if ($row['tanggal'] >= $currentDate) {
+            $row['tanggal'] = formatIndonesianDate($row['tanggal']);
+            $scheduled[] = $row;
+        }
     }
 }
 
@@ -91,15 +96,10 @@ $sql_unscheduled = "SELECT
                         tb_data_mahasiswa 
                     ON 
                         tb_skripsi.id_mahasiswa = tb_data_mahasiswa.id
-                    INNER JOIN 
-                        tb_dokumen 
-                    ON 
-                        tb_skripsi.id_mahasiswa = tb_dokumen.id_mahasiswa
                     WHERE 
                         tb_skripsi.judul_hasil IS NOT NULL AND 
                         tb_skripsi.dosen_pa1 IS NOT NULL AND 
                         tb_skripsi.dosen_pa2 IS NOT NULL AND 
-                        tb_dokumen.surat_persetujuan_pembimbing_pdf IS NOT NULL AND 
                         tb_skripsi.tanggal_hasil IS NULL";
 
 $result_unscheduled = $conn->query($sql_unscheduled);

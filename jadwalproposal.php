@@ -6,28 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jadwal Seminar Proposal</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-        }
+    <link rel="stylesheet" href="style/style.css">
 
-        .wrapper {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .content {
-            flex: 1;
-        }
-
-        footer {
-            background: #f8f9fa;
-            padding: 20px 0;
-        }
-    </style>
 </head>
 
 <body>
@@ -43,10 +23,10 @@
                             <th>Nama</th>
                             <th>Judul Proposal</th>
                             <th>Tanggal</th>
-                            <th>Dosen Sekretaris</th>
-                            <th>Dosen PA1</th>
-                            <th>Dosen PA2</th>
-                            <th>Dosen Penguji 1</th>
+                            <th>Ketua Ujian</th>
+                            <th>Pembimbing Akademik 1</th>
+                            <th>Pembimbing Akademik 2</th>
+                            <th>Dosen Penanggap</th>
                         </tr>
                     </thead>
                     <tbody id="schedule-table">
@@ -60,10 +40,10 @@
                         <tr>
                             <th>Nama</th>
                             <th>Judul Proposal</th>
-                            <th>Dosen Sekretaris</th>
-                            <th>Dosen PA1</th>
-                            <th>Dosen PA2</th>
-                            <th>Dosen Penguji 1</th>
+                            <th>Ketua Ujian</th>
+                            <th>Pembimbing Akademik 1</th>
+                            <th>Pembimbing Akademik 2</th>
+                            <th>Dosen Penanggap</th>
                         </tr>
                     </thead>
                     <tbody id="queue-table">
@@ -72,9 +52,6 @@
                 </table>
             </div>
         </div>
-        <footer>
-            <p class="text-center mt-5">create with <span style="color: red;">❤</span> by <a href="https://www.rehad.id/">Reza Hadiwijaya Dynasti</a></p>
-        </footer>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

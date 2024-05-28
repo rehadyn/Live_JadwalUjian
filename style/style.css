@@ -17,3 +17,19 @@ footer {
   left: 0;
   width: 100%;
 }
+/* Tambahkan ini ke file style/style.css */
+/* Tambahkan ini ke file style/style.css */
+.btn-group .btn {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-group .btn:hover {
+  background-color: #0056b3; /* Warna biru gelap */
+  color: #fff; /* Warna teks putih */
+}
+
+.btn-secondary:hover {
+  background-color: #007bff; /* Warna tombol primary saat di-hover */
+  border-color: #007bff; /* Warna border tombol primary saat di-hover */
+  color: #fff; /* Warna teks putih */
+}
