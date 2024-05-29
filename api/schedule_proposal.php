@@ -86,25 +86,18 @@ $sql_unscheduled = "SELECT
                         tb_skripsi.dosen_pa1,
                         tb_skripsi.dosen_pa2,
                         tb_skripsi.dosen_penguji1,
-                        tb_skripsi.judul_hasil
                     FROM 
                         tb_skripsi
                     INNER JOIN 
                         tb_data_mahasiswa 
                     ON 
                         tb_skripsi.id_mahasiswa = tb_data_mahasiswa.id
-                    INNER JOIN 
-                        tb_dokumen 
-                    ON 
-                        tb_skripsi.id_mahasiswa = tb_dokumen.id_mahasiswa
                     WHERE 
                         tb_skripsi.judul_skripsi IS NOT NULL AND 
                         tb_skripsi.dosen_pa1 IS NOT NULL AND 
                         tb_skripsi.dosen_pa2 IS NOT NULL AND 
                         tb_skripsi.dosen_penguji1 IS NOT NULL AND 
-                        tb_dokumen.surat_persetujuan_pembimbing_pdf IS NOT NULL AND 
-                        tb_skripsi.tanggal_proposal IS NULL AND 
-                        tb_skripsi.judul_hasil IS NULL";
+                        tb_skripsi.tanggal_proposal IS NULL";
 
 $result_unscheduled = $conn->query($sql_unscheduled);
 $unscheduled = array();
