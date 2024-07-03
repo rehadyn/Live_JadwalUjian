@@ -85,7 +85,7 @@ $sql_unscheduled = "SELECT
                         tb_skripsi.dosen_sekretaris,
                         tb_skripsi.dosen_pa1,
                         tb_skripsi.dosen_pa2,
-                        tb_skripsi.dosen_penguji1,
+                        tb_skripsi.dosen_penguji1
                     FROM 
                         tb_skripsi
                     INNER JOIN 
@@ -104,7 +104,10 @@ $unscheduled = array();
 
 if ($result_unscheduled->num_rows > 0) {
     while ($row = $result_unscheduled->fetch_assoc()) {
-        $unscheduled[] = $row;
+        // Check for empty fields
+        if (!empty($row['nama']) && !empty($row['judul']) && !empty($row['dosen_sekretaris']) && !empty($row['dosen_pa1']) && !empty($row['dosen_pa2']) && !empty($row['dosen_penguji1'])) {
+            $unscheduled[] = $row;
+        }
     }
 }
 

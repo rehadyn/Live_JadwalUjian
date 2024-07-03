@@ -6,8 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jadwal Seminar Proposal</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
 
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #6c757d;
+        }
+
+        .table thead th {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+
+        footer p {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
+        footer a {
+            color: #dc3545;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -65,29 +115,15 @@
                     } else {
                         data.scheduled.forEach(item => {
                             let row = document.createElement('tr');
-                            let namaCell = document.createElement('td');
-                            let judulCell = document.createElement('td');
-                            let tanggalCell = document.createElement('td');
-                            let dosenSekretarisCell = document.createElement('td');
-                            let dosenPa1Cell = document.createElement('td');
-                            let dosenPa2Cell = document.createElement('td');
-                            let dosenPenguji1Cell = document.createElement('td');
-
-                            namaCell.textContent = item.nama;
-                            judulCell.textContent = item.judul;
-                            tanggalCell.textContent = item.tanggal;
-                            dosenSekretarisCell.textContent = item.dosen_sekretaris;
-                            dosenPa1Cell.textContent = item.dosen_pa1;
-                            dosenPa2Cell.textContent = item.dosen_pa2;
-                            dosenPenguji1Cell.textContent = item.dosen_penguji1;
-
-                            row.appendChild(namaCell);
-                            row.appendChild(judulCell);
-                            row.appendChild(tanggalCell);
-                            row.appendChild(dosenSekretarisCell);
-                            row.appendChild(dosenPa1Cell);
-                            row.appendChild(dosenPa2Cell);
-                            row.appendChild(dosenPenguji1Cell);
+                            row.innerHTML = `
+                                <td>${item.nama}</td>
+                                <td>${item.judul}</td>
+                                <td>${item.tanggal}</td>
+                                <td>${item.dosen_sekretaris}</td>
+                                <td>${item.dosen_pa1}</td>
+                                <td>${item.dosen_pa2}</td>
+                                <td>${item.dosen_penguji1}</td>
+                            `;
                             scheduledTableBody.appendChild(row);
                         });
                     }
@@ -99,26 +135,14 @@
                     } else {
                         data.unscheduled.forEach(item => {
                             let row = document.createElement('tr');
-                            let namaCell = document.createElement('td');
-                            let judulCell = document.createElement('td');
-                            let dosenSekretarisCell = document.createElement('td');
-                            let dosenPa1Cell = document.createElement('td');
-                            let dosenPa2Cell = document.createElement('td');
-                            let dosenPenguji1Cell = document.createElement('td');
-
-                            namaCell.textContent = item.nama;
-                            judulCell.textContent = item.judul;
-                            dosenSekretarisCell.textContent = item.dosen_sekretaris;
-                            dosenPa1Cell.textContent = item.dosen_pa1;
-                            dosenPa2Cell.textContent = item.dosen_pa2;
-                            dosenPenguji1Cell.textContent = item.dosen_penguji1;
-
-                            row.appendChild(namaCell);
-                            row.appendChild(judulCell);
-                            row.appendChild(dosenSekretarisCell);
-                            row.appendChild(dosenPa1Cell);
-                            row.appendChild(dosenPa2Cell);
-                            row.appendChild(dosenPenguji1Cell);
+                            row.innerHTML = `
+                                <td>${item.nama}</td>
+                                <td>${item.judul}</td>
+                                <td>${item.dosen_sekretaris}</td>
+                                <td>${item.dosen_pa1}</td>
+                                <td>${item.dosen_pa2}</td>
+                                <td>${item.dosen_penguji1}</td>
+                            `;
                             queueTableBody.appendChild(row);
                         });
                     }
@@ -135,7 +159,6 @@
 </body>
 <footer>
     <p class="text-center mt-5">create with <span style="color: red;">❤</span> by <a href="https://www.rehad.id/">Reza Hadiwijaya Dynasti</a></p>
-
 </footer>
 
 </html>
