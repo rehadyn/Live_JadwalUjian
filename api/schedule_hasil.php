@@ -8,7 +8,6 @@ function formatIndonesianDate($dateStr)
     $timestamp = strtotime($dateStr);
     $formattedDate = strftime("%A, %d %B %Y", $timestamp);
 
-    // Ensure the day names and month names are in Indonesian
     $dayNames = array(
         'Sunday' => 'Minggu',
         'Monday' => 'Senin',
@@ -73,7 +72,7 @@ $scheduled = array();
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        if ($row['tanggal'] >= $currentDate) {
+        if (strtotime($row['tanggal']) >= strtotime($currentDate)) {
             $row['tanggal'] = formatIndonesianDate($row['tanggal']);
             $scheduled[] = $row;
         }
@@ -89,7 +88,8 @@ $sql_unscheduled = "SELECT
                         tb_skripsi.dosen_pa1,
                         tb_skripsi.dosen_pa2,
                         tb_skripsi.dosen_penguji1,
-                        tb_skripsi.dosen_penguji2
+                        tb_skripsi.dosen_penguji2,
+                        tb_skripsi.status_hasil
                     FROM 
                         tb_skripsi
                     INNER JOIN 
@@ -97,13 +97,7 @@ $sql_unscheduled = "SELECT
                     ON 
                         tb_skripsi.id_mahasiswa = tb_data_mahasiswa.id
                     WHERE 
-                        tb_skripsi.judul_hasil IS NOT NULL AND 
-                        tb_skripsi.judul_hasil <> '' AND 
-                        tb_skripsi.dosen_pa1 IS NOT NULL AND 
-                        tb_skripsi.dosen_pa2 IS NOT NULL AND 
-                        tb_skripsi.dosen_penguji2 IS NOT NULL AND 
-                        tb_skripsi.dosen_penguji2 <> '' AND 
-                        tb_skripsi.tanggal_hasil IS NULL";
+                        tb_skripsi.status_hasil = 'pending'";
 
 $result_unscheduled = $conn->query($sql_unscheduled);
 $unscheduled = array();
